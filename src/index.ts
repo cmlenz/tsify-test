@@ -1,1 +1,1 @@
-import Test from './test';
+import Adder from './adder';
