@@ -10,7 +10,6 @@
     "gulp-util": "^3.0.4",
     "jasmine-core": "^2.3.4",
     "karma": "^0.12.32",
-    "karma-as-promised": "^1.0.0",
     "karma-browserify": "^4.2.1",
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.1.4",

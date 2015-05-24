@@ -1,6 +1,6 @@
 var browserify = require('browserify');
 var gulp = require('gulp');
-var karma = require('karma-as-promised');
+var karma = require('karma');
 var gutil = require('gulp-util');
 var tslint = require('gulp-tslint');
 var source = require('vinyl-source-stream');
