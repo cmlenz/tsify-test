@@ -1,6 +1,6 @@
 var browserify = require('browserify');
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var karma = require('karma-as-promised');
 var gutil = require('gulp-util');
 var tslint = require('gulp-tslint');
 var source = require('vinyl-source-stream');
@@ -26,20 +26,11 @@ gulp.task('lint', function() {
     .pipe(tslint.report('verbose'));
 });
 
-gulp.task('test', function() {
-  return gulp.src('src/**/*.spec.ts')
-    .pipe(karma({
-      frameworks: ['browserify', 'jasmine'],
-      preprocessors: {
-        'src/**/*.ts': ['browserify'],
-      },
-      browserify: {
-        plugin: ['tsify', {target: 'ES5'}]
-      },
-      browsers: ['PhantomJS']
-    })).on('error', function(error) {
-      throw error;
-    });
+gulp.task('test', function(done) {
+  return karma.server.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  });
 });
 
 gulp.task('default', ['build', 'lint', 'test']);
