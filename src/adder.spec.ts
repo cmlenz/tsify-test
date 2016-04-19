@@ -1,5 +1,3 @@
-/// <reference path="../typings/jasmine/jasmine.d.ts"/>
-
 import Ader from './adder';
 
 describe('test adder', () => {

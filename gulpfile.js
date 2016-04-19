@@ -2,17 +2,14 @@ var browserify = require('browserify');
 var gulp = require('gulp');
 var karma = require('karma');
 var gutil = require('gulp-util');
-var tslint = require('gulp-tslint');
 var source = require('vinyl-source-stream');
+var tslint = require('gulp-tslint');
+var tsify = require('tsify');
 
 gulp.task('build', function() {
-  var b = browserify({
-    debug: true,
-    entries: ['./src/index.ts'],
-    standalone: 'Test'
-  }).plugin('tsify', {target: 'ES5', stopOnError: false});
-
-  return b.bundle()
+  return browserify('src/index.ts', 'typings/browser.d.ts', {debug: true})
+    .plugin(tsify, {stopOnError: false})
+    .bundle()
     .on('error', function(error) {
       gutil.log(error.message);
     })
