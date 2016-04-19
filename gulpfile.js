@@ -27,10 +27,13 @@ gulp.task('lint', function() {
 });
 
 gulp.task('test', function(done) {
-  return karma.server.start({
+  var server = new karma.Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
+  }, function() {
+    done();
   });
+  server.start();
 });
 
 gulp.task('default', ['build', 'lint', 'test']);
