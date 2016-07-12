@@ -1,8 +1,8 @@
-import Ader from './adder';
+import Adder from "./adder";
 
-describe('test adder', () => {
-  it('should add', () => {
+describe("test adder", () => {
+  it("should add", () => {
     let adder = new Adder(1);
-    expect(adder.add(1)).toBe(3);
+    expect(adder.add(1)).toBe(2);
   });
 });

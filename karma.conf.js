@@ -15,8 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.spec.ts',
-      'typings/browser.d.ts'
+      'src/**/*.spec.ts'
     ],
 
 
